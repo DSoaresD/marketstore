@@ -4,7 +4,7 @@ import Pagination from '../../components/Pagination';
 import ProductCard from '../../components/ProductCard';
 import { Product } from '../../types/product';
 import { SpringPage } from '../../types/vendor/spring';
-import { BASE_URL, requestBackend } from '../../util/requests';
+import { requestBackend } from '../../util/requests';
 import { AxiosRequestConfig } from 'axios';
 import './styles.css';
 import CardLoader from './CardLoader';
@@ -27,7 +27,8 @@ const Catalog = () => {
     setIsLoading(true);
     requestBackend(params).then((response) => {
       setPage(response.data);
-    }).finally(() => {
+    })
+    .finally(() => {
       setIsLoading(false);
     });
   }, []);
